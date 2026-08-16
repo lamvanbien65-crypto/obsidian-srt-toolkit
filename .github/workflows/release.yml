@@ -1,0 +1,41 @@
+name: Release plugin
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+  attestations: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # 构建 main.js（CI 无 vault 时跳过 python 同步与部署，见 build.mjs）
+      - run: npm run build
+
+      # 工件来源证明（Obsidian 审核要求 artifact attestations）
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: main.js,styles.css
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            main.js
+            manifest.json
+            styles.css

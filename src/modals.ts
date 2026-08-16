@@ -31,7 +31,7 @@ export class BiliModal extends Modal {
     new Setting(contentEl).setName("B站链接 / BV号 / 分享短链").addText((t) => {
       t.setPlaceholder("https://www.bilibili.com/video/BVxxxx 或 BVxxxx 或 b23.tv/xxx")
         .onChange((v) => (url = v.trim()));
-      t.inputEl.style.width = "100%";
+      t.inputEl.addClass("srt-wide");
     });
 
     new Setting(contentEl).addButton((b) =>

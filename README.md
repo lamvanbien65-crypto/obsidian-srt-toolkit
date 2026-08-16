@@ -2,7 +2,16 @@
 
 > **零云剪藏**：B站视频 → 结构化字幕笔记，一条命令全自动，**零云模式——全本地处理，不调用任何云 LLM / API**。
 
-ZeroCloud Clip: turn Bilibili videos into structured subtitle notes in one command. **Zero-cloud: everything runs locally, no cloud LLM or API calls.**
+# ZeroCloud Clip
+
+**ZeroCloud Clip** is an Obsidian plugin that turns Bilibili videos into structured subtitle notes in one command. **Zero-cloud by design**: every step — downloading, subtitle fetching, whisper transcription, and sentence segmentation — runs 100% locally. No cloud LLM, no API keys, no data leaves your machine.
+
+**Key features:**
+- One-command pipeline: download → (CC/AI subtitles or local whisper) → segmented notes
+- Bilibili download (1080P default), subtitle fetching, local video transcription
+- Task queue with live progress and clean cancellation
+- Built-in environment check (python3 / yt-dlp / ffmpeg / whisper-cli / model)
+- macOS first (Apple Metal whisper acceleration, ~15-20x realtime)
 
 ## 功能特性 / Features
 

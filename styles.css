@@ -168,3 +168,7 @@
 .srt-env-check { margin: 4px 0 12px 0; padding: 8px 12px; background: var(--background-secondary); border-radius: 6px; font-size: 12px; line-height: 1.8; font-family: var(--font-monospace); }
 .srt-env-ok { color: var(--color-green); }
 .srt-env-missing { color: var(--color-red); word-break: break-all; }
+
+/* 审核规范：宽度/字体走 CSS 类（no-static-styles-assignment） */
+.srt-wide { width: 100%; }
+.srt-cookie { width: 100%; font-family: var(--font-monospace); font-size: 11px; }

@@ -1,5 +1,5 @@
 // PythonRunner：spawn 子进程 + 协议解析 + 取消（进程组）
-import { spawn, execFileSync } from "child_process";
+import { spawn } from "child_process";
 import * as readline from "readline";
 import { normalizePath, App } from "obsidian";
 import type { ProgressEvent } from "./types";
@@ -73,10 +73,11 @@ export class PythonRunner {
       } catch {
         try { child.kill("SIGTERM"); } catch { /* ignore */ }
       }
-      // 3 秒宽限落断点缓存，再强杀
-      setTimeout(() => {
+      // 3 秒宽限落断点缓存，再强杀（window.setTimeout 兼容 popout 窗口）
+      const killer = window.setTimeout(() => {
         try { process.kill(-child.pid!, "SIGKILL"); } catch { /* ignore */ }
-      }, 3000).unref();
+      }, 3000) as unknown as { unref: () => void };
+      killer.unref();
     };
 
     return { done, cancel };

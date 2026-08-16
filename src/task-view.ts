@@ -54,7 +54,7 @@ export class TaskView extends ItemView {
 
     const head = el.createDiv({ cls: "srt-task-head" });
     head.createEl("span", { text: t.label, cls: "srt-task-title" });
-    const badge = head.createEl("span", { text: statusText(t.status), cls: `srt-badge srt-badge-${t.status}` });
+    head.createEl("span", { text: statusText(t.status), cls: `srt-badge srt-badge-${t.status}` });
 
     // 阶段链
     if (t.stages.length > 0) {

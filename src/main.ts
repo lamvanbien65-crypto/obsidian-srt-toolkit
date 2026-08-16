@@ -89,7 +89,7 @@ export class SrtPlugin extends Plugin {
   }
 
   private enqueue(kind: TaskKind, label: string, script: string, args: string[]): void {
-    const t = this.queue.enqueue({
+    this.queue.enqueue({
       id: `${Date.now()}-${seq++}`,
       kind,
       label,

@@ -1,5 +1,5 @@
 // TaskQueue：任务排队/串行调度/取消/事件（内存态；断点续传在 Python 文件层）
-import type { TaskRuntime, TaskSpec, ProgressEvent, StageState } from "./types";
+import type { TaskRuntime, TaskSpec, ProgressEvent } from "./types";
 import { PythonRunner } from "./runner";
 
 type Listener = () => void;

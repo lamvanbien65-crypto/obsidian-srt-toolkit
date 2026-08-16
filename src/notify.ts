@@ -11,10 +11,11 @@ export function notifyDone(app: App, t: TaskRuntime, settings: {
   if (settings.systemNotify) {
     try {
       if (typeof Notification !== "undefined") {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        new (Notification as any)("零云剪藏", {
-          body: `✅ ${name}`,
-        });
+        // 类型安全包装：Notification 构造器在 Electron 全局可用
+        const NotifyCtor = Notification as unknown as {
+          new (title: string, options?: { body?: string }): unknown;
+        };
+        new NotifyCtor("零云剪藏", { body: `✅ ${name}` });
       }
     } catch {
       // 系统通知不可用时退化为 Notice

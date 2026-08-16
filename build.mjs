@@ -11,7 +11,12 @@ const SRC_PYTHON = path.join(VAULT, "Function", "视频转录"); // 事实源脚
 const PLUGIN_PYTHON = path.join(process.cwd(), "python");     // 仓库内快照
 
 // 同步脚本：从 vault 的 Function/视频转录/ 拷贝最新脚本到 python/
+// CI/干净环境（无 vault）时跳过：仓库内 python/ 快照即事实源
 function syncPython() {
+  if (!existsSync(SRC_PYTHON)) {
+    console.log("  · vault 脚本目录不存在（CI/干净环境）：跳过同步，使用仓库内 python/ 快照");
+    return;
+  }
   const files = ["视频转录.py", "字幕说话人标记.py", "标准字幕剪藏.py", "b站下载.py", "llm.py"];
   for (const f of files) {
     const src = path.join(SRC_PYTHON, f);
@@ -23,6 +28,10 @@ function syncPython() {
 }
 
 function deploy() {
+  if (!existsSync(VAULT)) {
+    console.log("  · vault 不存在（CI/干净环境）：跳过部署");
+    return;
+  }
   mkdirSync(PLUGIN_DIR, { recursive: true });
   // 清空旧产物（保留 manifest 由主构建负责）
   for (const f of ["main.js", "main.js.map", "styles.css", "manifest.json", "versions.json"]) {

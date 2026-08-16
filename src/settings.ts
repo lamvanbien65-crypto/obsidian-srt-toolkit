@@ -5,7 +5,6 @@ import { existsSync } from "fs";
 import { homedir } from "os";
 import { join } from "path";
 import type { SrtPlugin } from "./main";
-import type { SrtSettings } from "./types";
 
 export class SrtSettingTab extends PluginSettingTab {
   constructor(app: App, private plugin: SrtPlugin) {
@@ -126,9 +125,7 @@ export class SrtSettingTab extends PluginSettingTab {
             await this.plugin.saveSettings();
           });
         t.inputEl.rows = 3;
-        t.inputEl.style.width = "100%";
-        t.inputEl.style.fontFamily = "monospace";
-        t.inputEl.style.fontSize = "11px";
+        t.inputEl.addClass("srt-cookie");
       });
     new Setting(containerEl)
       .setName("浏览器 Cookie（替代方案）")
