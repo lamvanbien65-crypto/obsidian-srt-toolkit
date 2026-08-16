@@ -1,0 +1,170 @@
+/* SRT 字幕工具箱 样式 */
+
+.srt-toolkit-view {
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.srt-empty {
+  color: var(--text-muted);
+  padding: 16px 8px;
+  text-align: center;
+}
+
+.srt-task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: var(--font-semibold);
+}
+
+.srt-btn {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--background-modifier-hover);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.srt-btn-cta {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.srt-task-card {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  background: var(--background-primary);
+}
+
+.srt-task-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.srt-task-title {
+  font-size: 13px;
+  font-weight: var(--font-semibold);
+  word-break: break-all;
+  flex: 1;
+}
+
+.srt-badge {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.srt-badge-queued { background: var(--background-modifier-hover); color: var(--text-muted); }
+.srt-badge-running { background: var(--interactive-accent); color: var(--text-on-accent); }
+.srt-badge-succeeded { background: var(--color-green); color: white; }
+.srt-badge-failed { background: var(--color-red); color: white; }
+.srt-badge-canceled { background: var(--background-modifier-hover); color: var(--text-muted); }
+
+.srt-stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.srt-stage {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  background: var(--background-modifier-hover);
+  color: var(--text-muted);
+}
+
+.srt-stage-done { color: var(--color-green); }
+.srt-stage-failed { color: var(--color-red); }
+.srt-stage-active {
+  color: var(--text-accent);
+  font-weight: var(--font-semibold);
+  animation: srt-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes srt-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.srt-progress {
+  position: relative;
+  height: 14px;
+  background: var(--background-modifier-hover);
+  border-radius: 7px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.srt-progress-fill {
+  height: 100%;
+  background: var(--interactive-accent);
+  transition: width 0.3s;
+}
+
+.srt-progress-text {
+  position: absolute;
+  right: 6px;
+  top: 0;
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--text-muted);
+}
+
+.srt-error {
+  font-size: 12px;
+  color: var(--color-red);
+  margin-bottom: 6px;
+}
+
+.srt-result {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.srt-result-link {
+  font-size: 12px;
+  color: var(--text-accent);
+  text-decoration: underline;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.srt-ops {
+  display: flex;
+  gap: 6px;
+}
+
+.srt-log {
+  margin-top: 6px;
+  font-size: 11px;
+  max-height: 160px;
+  overflow: auto;
+  background: var(--background-secondary);
+  padding: 6px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.srt-statusbar {
+  cursor: pointer;
+}
+
+/* 环境自检 */
+.srt-env-check { margin: 4px 0 12px 0; padding: 8px 12px; background: var(--background-secondary); border-radius: 6px; font-size: 12px; line-height: 1.8; font-family: var(--font-monospace); }
+.srt-env-ok { color: var(--color-green); }
+.srt-env-missing { color: var(--color-red); word-break: break-all; }
