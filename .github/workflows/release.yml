@@ -39,3 +39,12 @@ jobs:
             main.js
             manifest.json
             styles.css
+          body: |
+            ZeroCloud Clip ${{ github.ref_name }}
+
+            Zero-cloud Bilibili video clipping plugin: download, CC/AI subtitle
+            fetching, local whisper transcription, and standard subtitle notes —
+            100% local, no cloud LLM, no API calls.
+
+            - 零云剪藏：B站视频 → 字幕笔记，全本地处理
+            - See git log for full changelog

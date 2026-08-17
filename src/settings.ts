@@ -14,13 +14,13 @@ export class SrtSettingTab extends PluginSettingTab {
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "零云剪藏" });
+    new Setting(containerEl).setName("零云剪藏").setHeading();
     containerEl.createEl("p", {
       text: "B站视频下载、CC/AI 字幕抓取、whisper 转录与标准字幕剪藏一体化。零云模式：全部处理本地完成，不调用任何云 LLM。依赖：python3、yt-dlp、ffmpeg、whisper-cli（brew install 安装）。",
     });
 
     // ---------- 环境 ----------
-    containerEl.createEl("h3", { text: "环境" });
+    new Setting(containerEl).setName("环境").setHeading();
     new Setting(containerEl)
       .setName("环境自检")
       .setDesc("检查 python3 / yt-dlp / ffmpeg / whisper-cli / whisper 模型是否就绪")
@@ -111,7 +111,7 @@ export class SrtSettingTab extends PluginSettingTab {
       );
 
     // ---------- B站 ----------
-    containerEl.createEl("h3", { text: "B站" });
+    new Setting(containerEl).setName("B站").setHeading();
     new Setting(containerEl)
       .setName("B站 Cookie")
       .setDesc(
@@ -174,7 +174,7 @@ export class SrtSettingTab extends PluginSettingTab {
       );
 
     // ---------- 默认参数 ----------
-    containerEl.createEl("h3", { text: "默认参数" });
+    new Setting(containerEl).setName("默认参数").setHeading();
     new Setting(containerEl)
       .setName("断句目标字数")
       .addText((t) =>
@@ -189,7 +189,7 @@ export class SrtSettingTab extends PluginSettingTab {
       );
 
     // ---------- 行为 ----------
-    containerEl.createEl("h3", { text: "行为" });
+    new Setting(containerEl).setName("行为").setHeading();
     new Setting(containerEl)
       .setName("完成后自动打开笔记")
       .addToggle((t) =>

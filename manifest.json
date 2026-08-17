@@ -1,7 +1,7 @@
 {
  "id": "srt-subtitle-toolkit",
  "name": "ZeroCloud Clip",
- "version": "0.1.2",
+ "version": "0.1.3",
  "minAppVersion": "1.7.2",
  "description": "零云剪藏：B站视频下载、CC/AI 字幕抓取、whisper 转录与标准字幕剪藏一体化，全本地处理、不调用任何云 LLM。一键把 B站视频变成结构化字幕笔记。",
  "author": "lamvanbien65-crypto",
